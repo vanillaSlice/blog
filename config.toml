@@ -1,4 +1,4 @@
-baseURL = "http://vanillaslice.github.io/blog/"
+baseURL = "https://blog.mikelowe.xyz"
 languageCode = "en-us"
 title = "Muh Blog"
 theme = "journal"
