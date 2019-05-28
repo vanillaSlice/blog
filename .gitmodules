@@ -1,3 +1,3 @@
 [submodule "themes/journal"]
 	path = themes/journal
-	url = git@github.com:damiencaselli/hugo-journal.git
+	url = https://github.com/damiencaselli/hugo-journal.git
