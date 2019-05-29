@@ -1,5 +1,18 @@
-baseURL = "https://blog.mikelowe.xyz"
-languageCode = "en-us"
-title = "Muh Blog"
-theme = "journal"
+baseURL = "https://blog.mikelowe.xyz/"
 disqusShortname = "blog-mikelowe-xyz"
+languageCode = "en-gb"
+title = "Muh blog."
+theme = "journal"
+
+[author]
+  name = "Mike Lowe"
+
+[params]
+  description = "Ramblings of a full-time bug-maker."
+  githubUsername = "vanillaSlice"
+  tagline = "Ramblings of a full-time bug-maker."
+
+[params.work]
+  company = "Upside Energy"
+  companyUrl = "https://upsideenergy.co.uk/"
+  jobTitle = "Developer"
