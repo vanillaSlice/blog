@@ -1,7 +1,7 @@
 ---
 title: "Recommendation: Seven Languages in Seven Weeks"
 date: 2019-06-01T13:59:26+01:00
-draft: false
+draft: true
 ---
 
 *tl;dr: Seven Languages in Seven Weeks is an awesome book that I would highly recommend to mid-level developers who've
