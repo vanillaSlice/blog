@@ -59,18 +59,18 @@ This was my first venture into the *Seven &lt;something&gt; in Seven Weeks* seri
 thoroughly impressed. Whilst seven weeks might seem like a big commitment, it is actually only three days a week and
 the information is presented in such a way that it is easily digestible.
 
-Before reading this book there were three languages that I would even contemplate putting on my CV: Java, Python and
-JavaScript. That list has not changed since reading this book. But that's fine. That is not the aim of
-*Seven Languages*. This book has given me the confidence to say, "f**k it", and to not be so anxious before learning a
-new technology (not just a new language). Let's face it, as developers we are going to be learning a lot of shit
-throughout our careers so it's best to get used to it.
-
 I've recently obtained a copy of
 [Seven Concurrency Models in Seven Weeks](https://www.amazon.co.uk/Seven-Concurrency-Models-Weeks-Programmers/dp/1937785653)
 that I'll be working my way through soon (this is an area of development I really need to improve on!).
 There is also a follow-up to *Seven Languages* —
 [Seven More Languages in Seven Weeks](https://www.amazon.co.uk/Seven-More-Languages-Weeks-Shaping/dp/1941222153).
 I've got no immediate plans to read this but I imagine it is as eminently readable as the original.
+
+Before reading this book there were three languages that I would even contemplate putting on my CV: Java, Python and
+JavaScript. That list has not changed since reading this book. But that's fine. That is not the aim of
+*Seven Languages*. This book has given me the confidence to say, "f**k it", and to not be so anxious before learning a
+new technology (not just a new language). Let's face it, as developers we are going to be learning a lot of shit
+throughout our careers so it's best to get used to it.
 
 Anyway, have you read *Seven Languages*? Did you like it? Did you hate it? Are there any other books in the
 *Seven &lt;something&gt; in Seven Weeks* series that you would recommend?
