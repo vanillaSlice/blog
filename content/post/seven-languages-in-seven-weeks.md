@@ -40,21 +40,12 @@ We start with a new language each week:
 Each language has a dedicated chapter split into five sections:
 
 1. An introduction to the language.
-2. *Day 1* - an introduction to the language's syntax (this is not the focal point), design features and new concepts.
+2. *Day 1* - an introduction to the language's syntax (not the focal point), design features and new concepts.
 These sections end with exercises for the reader to complete before the next day.
 3. *Day 2* - ditto the above but increasing in complexity.
 4. *Day 3* - ditto the above.
 5. A wrap up consisting of a recap of the previous three sections, pros & cons of the language and any final musings
 from the author.
-
-At this point, you may be thinking, "Prolog? Io? Why would I want to learn those? They aren't going to get me a job".
-And you're probably right. C#, Java and JavaScript could have easily been incorporated into *Seven Languages*. This — I
-believe — would have worked against the book's favour for a couple of reasons:
-
-1. The majority of people reading are likely to be well-versed in at least one of C#, Java or JavaScript. This could
-make a couple or more of the chapters redundant for a large part of the audience.
-2. Comparing C# and Java wouldn't be as interesting as comparing, say, Ruby and Haskell. The key here is being exposed
-to many languages that can differ from each other quite significantly.
 
 As I alluded to above, learning the various syntaxes is not the focus of this book. You'll learn so much more. You'll
 learn about actor-based concurrency in Io and Scala. You'll learn about how Scala addresses the criticisms aimed at Java
@@ -63,12 +54,25 @@ applications can run for years without downtime. You'll learn to appreciate the 
 You'll remember why you still hate Prolog many years after your first encounter with it in University and why you swore,
 like Taylor Swift, to never ever ever get back together.
 
-## Why you should read it
+At this point, you may be thinking, "Io? Prolog? Haskell? Why would I want to learn those? They aren't going to get me a job".
+And you're probably right. C#, Java and JavaScript could have easily been incorporated into *Seven Languages*. This — I
+believe — would have worked against the book's favour for a couple of reasons:
+
+1. The majority of people reading are likely to be well-versed in at least one of C#, Java or JavaScript. This could
+make a couple or more of the chapters redundant for a large part of the audience.
+2. Comparing C# and Java wouldn't be as interesting as comparing, say, Ruby and Erlang. The key here is being exposed
+to many languages that can differ from each other quite significantly.
+
+## Why should I read it?
+
+**START**
 
 I consider myself a mid-level developer and feel like this book is pitched perfectly at those at the same level.
 More junior developers may be overwhelmed by constantly switching languages and feeling the need to understand
 everything about each one. More senior developers who have picked up several languages from experience may find
 this less useful.
+
+**END**
 
 ## Final thoughts
 
