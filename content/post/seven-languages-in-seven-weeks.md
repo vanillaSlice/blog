@@ -25,7 +25,7 @@ Surprised mainly because I had never heard of it; partly because it sounded like
 As the name suggests, we learn seven languages in seven weeks. *Learn* might be a stretch. It's more of a tour of seven
 languages. But that's the whole point of the book — the intention is *not* to make you an expert in each language.
 
-We start with a new language each week. Each language has a dedicated chapter split into 5 sections:
+We start with a new language each week. Each language has a dedicated chapter split into five sections:
 
 1. An introduction to the language.
 2. Day 1 - an introduction to the language's syntax (this is not the focal point), design features and new concepts. These
@@ -53,6 +53,13 @@ believe — would have worked against the book's favour for a couple reasons:
 make a couple or more of the chapters redundant for a large part of the audience.
 2. C#, Java and JavaScript aren't so wildly different as say doing a comparison between Ruby, Haskell and Prolog. The
 key here is being exposed to many languages that can differ from each other quite significantly.
+
+As I alluded to above, learning the various syntaxes is not the focus of this book. You'll learn so much more. You'll
+learn about actor-based concurrency in Io and Scala. You'll learn about how Scala addresses the criticisms aimed at Java
+(subsequently giving Java the kick up the arse it needed). You'll learn about code hot-swapping in Erlang and how some
+applications can run for years without downtime. You'll learn to appreciate the beauty of immutability in Clojure.
+You'll remember why you still hate Prolog many years after your first encounter with it in University and why you swore,
+like Taylor Swift, to never ever ever get back together.
 
 ## Why you should read it
 
