@@ -1,7 +1,7 @@
 ---
 title: "Recommendation: Seven Languages in Seven Weeks"
-date: 2019-06-01T13:59:26+01:00
-draft: true
+date: 2019-06-09T14:58:24+01:00
+draft: false
 ---
 
 *tl;dr: Seven Languages in Seven Weeks is an awesome book that I would highly recommend to mid-level developers who've
@@ -63,16 +63,22 @@ make a couple or more of the chapters redundant for a large part of the audience
 2. Comparing C# and Java wouldn't be as interesting as comparing, say, Ruby and Erlang. The key here is being exposed
 to many languages that can differ from each other quite significantly.
 
-## Why should I read it?
+## Who should read it?
 
-**START**
+I consider myself a mid-level developer and feel like this book is pitched perfectly towards those at the same level.
+As a mid-level developer you will have (at least) one language that you a very comfortable with. So much so that you may
+gravitate towards this language when starting a new project, regardless of whether it is the most suitable choice or not.
+By reading *Seven Languages* I have learned to throw this way of thinking away and to weigh up the pros & cons of
+languages/technologies when starting new projects so that the best tools for the job are selected. Ultimately, it has
+taught me not to be afraid to learn new things.
 
-I consider myself a mid-level developer and feel like this book is pitched perfectly at those at the same level.
-More junior developers may be overwhelmed by constantly switching languages and feeling the need to understand
-everything about each one. More senior developers who have picked up several languages from experience may find
-this less useful.
+More junior developers may struggle with some of the more advanced concepts (e.g. concurrency models) and may appreciate
+the differences between the seven languages when more experienced. Don't let this deter you from reading this book, you
+will still learn a hell of a lot.
 
-**END**
+More senior developers who, by virtue of having more experience, will have come across many languages in their time and
+therefore be able to pick new languages up at a quicker pace. You probably won't gain as much from *Seven Languages*
+but may still pick up a thing or two.
 
 ## Final thoughts
 
@@ -84,7 +90,7 @@ Before reading this book there were three languages that I would even contemplat
 JavaScript. That list has not changed since reading this book. But that's fine. That is not the aim of
 *Seven Languages*. This book has given me the confidence to say, "f**k it", and to not be so anxious before learning a
 new technology (not just a new language). Let's face it, as developers we are going to be learning a lot of shit
-throughout our careers so it's best to get used to it.
+throughout our careers so we better get used to it.
 
 There is also a follow-up to *Seven Languages* —
 [Seven More Languages in Seven Weeks](https://www.amazon.co.uk/Seven-More-Languages-Weeks-Shaping/dp/1941222153).
