@@ -7,7 +7,7 @@ draft: false
 *tl;dr: Seven Languages in Seven Weeks is an awesome book that I would highly recommend to mid-level developers who've
 ever had a feeling of apprehension when wanting to learn a new language or technology.*
 
-![Seven Languages in Seven Weeks](/images/seven-languages-in-seven-weeks.jpg)
+![Seven Languages in Seven Weeks](/images/seven-languages-in-seven-weeks/main.jpg)
 
 Towards the end of last year, I was in a 1-2-1 with my line manager. 1-2-1s are meetings that allow you to discuss work
 issues, ways in which you can improve, air any concerns you have or to just chew the fat. My line manager also happens
