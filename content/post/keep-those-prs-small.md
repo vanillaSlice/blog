@@ -61,9 +61,27 @@ Now this may be slightly exaggerated but I'm sure most of you have been in simil
 I'm using this as a way to illustrate why I believe that keeping your PRs small will lead to quicker and better quality reviews.
 
 ## So what is a "Small PR"?
-How?
+
+For me, pull requests should do one thing. Let me steal the advice in [Clean Code](https://www.amazon.co.uk/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+on functions:
+
+> Pull requests should do one thing. They should do it well. They should do it only.
+
+Every line in your PR should contribute to that one thing. Anything that does not contribute to that one thing should be put
+on a separate PR.
+
+* Mixing bug fixes and new features? Put them on separate PRs.
+* Moving those classes that we aren't using to a new package? Put them on a separate PR.
+* Those refactorings that have no relevance to this new feature? Put them on a separate PR.
+* Deleting old files that haven't been needed for the past 3 years? Put it on a separate PR.
+* Writing two services that are completely independent of each other? Put them on separate PRs.
+
+Choosing to do one thing in your PRs will naturally make them more focused and smaller (and reviewers will love you for it!).
 
 ## Advantages
+
+So why on earth should we go to the effort of making smaller PRs? Here are some advantages I've observed:
+
 ### More likely to review
 ### Quicker reviews/More digestible
 ### Easier to spot problems
@@ -71,13 +89,13 @@ How?
 
 ## Disadvantages
 ### No wider context
-### If you have a slow build process
+### Slow build process
 
 ## Example
 ### Service, Controller multiple PRs
 
 ## Final thoughts
 
-And finally: keep those PRs small!
+One last time: keep those PRs small!
 
 Thanks for reading.
