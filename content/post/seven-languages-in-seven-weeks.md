@@ -27,7 +27,7 @@ As the name suggests, we learn seven languages in seven weeks. *Learn* might be 
 seven languages. But that's the whole point of the book — the intention is not to make you an expert in each
 language.
 
-We start each week with a new language:
+We start off each week with a new language:
 
 * Week 1 - Ruby
 * Week 2 - Io
