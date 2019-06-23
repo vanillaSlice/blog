@@ -92,7 +92,7 @@ JavaScript. That list has not changed since reading this book. But that's fine. 
 new technology (not just a new language). Let's face it, as developers we are going to be learning a lot of shit
 throughout our careers so we better get used to it.
 
-There is also a follow-up to *Seven Languages* —
+There is a follow-up to *Seven Languages* —
 [Seven More Languages in Seven Weeks](https://www.amazon.co.uk/Seven-More-Languages-Weeks-Shaping/dp/1941222153).
 I've got no immediate plans to read this but I imagine it'll be as eminently readable as the original. I've also recently
 obtained a copy of
