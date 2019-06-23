@@ -19,15 +19,15 @@ hear the usual suspects: [Clean Code](https://www.amazon.co.uk/Clean-Code-Handbo
 Surprised mainly because I had never heard of it; partly because it sounded like one of those cheap
 *Learn to Code in a Day* books.
 
-****Spoiler: it is anything but a cheap *Learn to Code in a Day* book.****
+****Spoiler: it's anything but a cheap *Learn to Code in a Day* book.****
 
 ## What's it all about?
 
 As the name suggests, we learn seven languages in seven weeks. *Learn* might be a stretch. It's more of a *tour* of
-seven languages. But that's the whole point of the book — the intention is *not* to make you an expert in each
+seven languages. But that's the whole point of the book — the intention is not to make you an expert in each
 language.
 
-We start with a new language each week:
+We start each week with a new language:
 
 * Week 1 - Ruby
 * Week 2 - Io
@@ -39,18 +39,18 @@ We start with a new language each week:
 
 Each language has a dedicated chapter split into five sections:
 
-1. An introduction to the language.
-2. *Day 1* - an introduction to the language's syntax (not the focal point), design features and new concepts.
-These sections end with exercises for the reader to complete before the next day.
-3. *Day 2* - ditto the above but increasing in complexity.
-4. *Day 3* - ditto the above.
-5. A wrap up consisting of a recap of the previous three sections, pros & cons of the language and any final musings
+* An introduction to the language.
+* *Day 1* - an introduction to the language's syntax, design features and new concepts. These sections end with
+exercises for the reader to complete before the next day.
+* *Day 2* - ditto the above but increasing in complexity.
+* *Day 3* - ditto the above.
+* A wrap up consisting of a recap of the previous three sections, pros & cons of the language and any final musings
 from the author.
 
-As I alluded to above, learning the various syntaxes is not the focus of this book. You'll learn so much more. You'll
+It's worth noting that learning the various syntaxes is not the focus of this book. You'll learn so much more. You'll
 learn about actor-based concurrency in Io and Scala. You'll learn about how Scala addresses the criticisms aimed at Java
 (subsequently giving Java the kick up the arse it needed). You'll learn about code hot-swapping in Erlang and how some
-applications can run for years without downtime. You'll learn to appreciate the beauty of immutability in Clojure.
+applications can run for years without downtime. You'll learn to appreciate the beauty of immutability with Clojure.
 You'll remember why you still hate Prolog many years after your first encounter with it in University and why you swore,
 like Taylor Swift, to never ever ever get back together.
 
@@ -60,7 +60,7 @@ believe — would have worked against the book's favour for a couple of reasons:
 
 1. The majority of people reading are likely to be well-versed in at least one of C#, Java or JavaScript. This could
 make a couple or more of the chapters redundant for a large part of the audience.
-2. Comparing C# and Java wouldn't be as interesting as comparing, say, Ruby and Erlang. The key here is being exposed
+2. Comparing C# and Java wouldn't be as interesting as comparing, say, Haskell and Ruby. The key here is being exposed
 to many languages that can differ from each other quite significantly.
 
 ## Who should read it?
