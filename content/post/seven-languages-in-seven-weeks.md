@@ -66,7 +66,7 @@ to many languages that can differ from each other quite significantly.
 ## Who should read it?
 
 I consider myself a mid-level developer and feel like this book is pitched perfectly towards those at the same level.
-As a mid-level developer you will have (at least) one language that you a very comfortable with. So much so that you may
+As a mid-level developer, you will have (at least) one language that you a very comfortable with. So much so that you may
 gravitate towards this language when starting a new project, regardless of whether it is the most suitable choice or not.
 By reading *Seven Languages* I have learned to throw this way of thinking away and to weigh up the pros & cons of
 languages/technologies when starting new projects so that the best tools for the job are selected. Ultimately, it has
