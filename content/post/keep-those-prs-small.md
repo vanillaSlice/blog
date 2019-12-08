@@ -85,37 +85,165 @@ For me, pull requests should do one thing. Let me paraphrase the advice in
 Every line in your PR should contribute to that one thing. Anything that does not contribute to that one thing should be
 put on a separate PR.
 
-* Mixing bug fixes and new features? **Put them on separate PRs.**
-* Moving those classes that we aren't using to a new package? **Put them on a separate PR.**
-* Those refactorings that have no relevance to this new feature? **Put them on a separate PR.**
-* Deleting old files that haven't been needed for the past 3 years? **Put it on a separate PR.**
-* Writing two services that are completely independent of each other? **Put them on separate PRs.**
+Mixing bug fixes and new features? **Put them on separate PRs.**
+
+Moving those classes that we aren't using to a new package? **Put them on a separate PR.**
+
+Those refactorings that have no relevance to this new feature? **Put them on a separate PR.**
+
+Deleting old files that haven't been needed for the past 3 years? **Put it on a separate PR.**
+
+Writing two services that are completely independent of each other? **Put them on separate PRs.**
 
 Choosing to do one thing in your PRs will naturally make them more focused and smaller (and reviewers will adore you
 for it!).
 
 ## The Good
 
-So why on earth should we go to the effort of making smaller PRs? Here are some advantages I've observed:
+So why on earth should we go to the effort of making smaller PRs?
 
-### More likely to review
-### Quicker reviews/More digestible
+### More people are likely to review
+
+### More digestible == Quicker reviews
+
+Smaller PRs are easier to digest. There's no bouncing around files, infinite scrolling or context switching. If a
+reviewer understands your intention for the PR then they can offer more constructive criticism.
+
+Not just more digestible for the reviewer but also for yourself. How many times have you created a big pull request,
+read over it and thought, "what the hell am I even doing here?".
+
 ### Easier to spot problems
+
+Time for a really basic example.
+
+Give yourself a minute or so to read through the following code and hunt down the fairly obvious error:
+
+```
+public void initialiseCells() {
+  for (int row = 0; row < grid.getRows(); row++) {
+    for (int column = 0; column < grid.getColumns(); column++) {
+      initialiseCell(new Coordinates(row, column));
+    }
+  }
+}
+
+private void initialiseCell(Coordinates coordinates) {
+  Cell cell = new Cell();
+
+  addAlivePropertyListener(cell);
+  addClickEventHandler(cell);
+
+  grid.add(cell, coordinates);
+}
+
+private void addAlivePropertyListener(Cell cell) {
+  cell.aliveProperty()
+    .addListener(newValue -> setAliveStyle(cell, newValue));
+}
+
+private void setAliveStyle(Cell cell, boolean isAlive) {
+  List<String> styleClass = cell.getStyleClass();
+  if (isAlive) {
+    styleClass.add(ALIVE_STYLE_CLASS);
+  } else {
+    styleClass.remove(ALIVE_STYLE_CLASS);
+  }
+}
+
+private void addClickEventHandler(Cell cell) {
+  cell.addEventHandler(MouseEvent.MOUSE_CLICKED,
+    event -> cell.toggleAlive());
+}
+
+public void resetCells() {
+  for (int row = 0; row < grid.getRows(); row++) {
+    for (int column = 0; column < grid.getRows(); column++) {
+      resetCell(new Coordinates(row, column));
+    }
+  }
+}
+```
+
+Did you find it? How about now:
+
+```
+public void resetCells() {
+  for (int row = 0; row < grid.getRows(); row++) {
+    for (int column = 0; column < grid.getRows(); column++) {
+      resetCell(new Coordinates(row, column));
+    }
+  }
+}
+```
+
+That second call to `grid.getRows()` should actually be `grid.getColumns()` (but you knew that, right?). How much
+simpler was it to find the bug the second time around?
+
+Admittedly, our unit tests should catch this. But what if the test data only uses square grids? Or even worse, what if
+this code isn't even covered by our tests?
+
+Bugs like this can go unnoticed as we focus on seemingly more complicated code when reviewing PRs. It's surprising how
+often bugs creep into what should be trivial code. And this was in just 40(ish) lines. What happens when we get into the
+world of reviewing complex classes that are 400 lines long? Or multiple complex classes that are 400 lines long? It's
+easy to see how spotting bugs in a mammoth PR can be like trying to find
+[hay in a needlestack](https://www.youtube.com/watch?v=WCheFdOy0tg).
+
+*Small PRs make it easier for you as an author and as a reviewer to spot problems.*
+
 ### Constantly merging code into master
+
+### A "truer" commit history
+
+Git commits have a message for a reason.
+
+// TODO: include image of git history and then an image showing different changes.
+
+*Small PRs will help you to maintain a "truer" commit history.*
+
 ### Easier to roll back and pinpoint specific changes
 
+// TODO: ties in nicely with last point. We can pinpoint specific changes.
+
+### More encouraging for newbies (open source)
+
+// TODO: contributions are valuable. No matter how big or how small.
+
 ## The Bad (maybe)
+
 ### No wider context
+
+Link to related PRs. If you are calling a function in a different PR, how is this different from using built-in
+libraries?
+
 ### Slow build process
 
-## Example
-### Service, Controller multiple PRs
+This is a problem with your build process. Not small PRs.
+
+### More noise?
+
+Receiving more PRs, is this annoying?
 
 ## How?
+
 Questions to ask yourself before submitting a PR.
+
+> If I were asked to review this PR, would I be happy about it?
+
+If the answer is 'No', then split into smaller PRs.
+
+> Does this PR do one thing?
+
+If the answer is 'No', then split into smaller PRs.
 
 ## Final thoughts
 
-One last time: keep those PRs small!
+Be pragmatic. You don't have to create a separate PR for each individual function. As a rule of thumb, I would suggest
+that if you're changing more than 10 files in a PR, then you should ask yourself, "am I doing too much?".
+
+Give it a try for a week. Gauge the speed at which you are merging your PRs into master. Gauge how reactive people are
+to reviewing your PRs. Gauge how often you're having to go back and fix bugs introduced by prior PRs. At the very least,
+your number of contributions will start to look pretty healthy.
+
+So one last time: **keep those PRs small!**
 
 Thanks for reading.
