@@ -8,9 +8,9 @@ theme = "journal"
   name = "Mike Lowe"
 
 [params]
-  description = "Ramblings of a full-time bug-maker."
+  description = "Memoirs of a bug-maker."
   githubUsername = "vanillaSlice"
-  tagline = "Ramblings of a full-time bug-maker."
+  tagline = "Memoirs of a bug-maker."
 
 [params.work]
   company = "Upside Energy"
