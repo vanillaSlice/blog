@@ -221,14 +221,6 @@ and somehow made its way to production? We wouldn't want to revert this commit a
 
 *Small PRs will allow you to revert specific problematic commits.*
 
-### Encouraging for newbies
-
-// TODO: flesh this section out.
-
-Contributions are valuable no matter how big or how small.
-
-*Small PRs will encourage newbies to contribute to your project.*
-
 ## How?
 
 Instead of going into the minutiae of how to make your PRs smaller, I've boiled it down to a couple of questions you
