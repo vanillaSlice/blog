@@ -197,19 +197,29 @@ easy to see how identifying issues in a mammoth PR can be like trying to find
 
 *Small PRs make it easier for you as an author and as a reviewer to spot problems.*
 
-### A "truer" commit history
-
-// TODO: flesh this section out.
-
-Git commits have a message for a reason.
-
-*Small PRs will help you to maintain a "truer" commit history.*
-
 ### Pinpointing problematic commits
 
 // TODO: flesh this section out.
 
-*Small PRs will allow you to revert specific commits that prove problematic.*
+Git commits have a message for a reason. They explain what and why changes were made.
+
+Consider the following example:
+
+![Screenshot 6](/images/keep-those-prs-small/screenshot-6.png)
+
+At a glance, we can see exactly what happened on that day.
+
+Or can we?
+
+Let's take a closer look at the `refactor: Extract SNSFactory` commit and aha!
+
+![Screenshot 7](/images/keep-those-prs-small/screenshot-7.png)
+
+This wasn't mentioned in the commit message. Looks like a super important security patch. In most cases, this wouldn't
+be a problem. We've tidied up some code and added a vital security fix. But what if the refactor introduced an issue
+and somehow made its way to production? We wouldn't want to revert this commit and lose our patch.
+
+*Small PRs will allow you to revert specific problematic commits.*
 
 ### Encouraging for newbies
 
