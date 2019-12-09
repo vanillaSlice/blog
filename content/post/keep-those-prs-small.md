@@ -191,7 +191,7 @@ this code isn't even covered by our tests?
 
 Bugs like this can go unnoticed as we focus on seemingly more complicated code when reviewing PRs. It's surprising how
 often bugs creep into what should be trivial code. And this was in just 40(ish) lines. What happens when we get into the
-world of reviewing complex classes that are 400 lines long? Or multiple complex classes that are 400 lines long? It's
+world of reviewing complex classes that are 400 lines long? Or *multiple* complex classes that are 400 lines long? It's
 easy to see how identifying issues in a mammoth PR can be like trying to find
 [hay in a needlestack](https://www.youtube.com/watch?v=WCheFdOy0tg).
 
