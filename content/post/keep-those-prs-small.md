@@ -85,15 +85,15 @@ For me, pull requests should do one thing. Let me paraphrase the advice in
 Every line in your PR should contribute to that one thing. Anything that does not contribute to that one thing should be
 put on a separate PR.
 
-Mixing bug fixes and new features? **Put them on separate PRs.**
+* Mixing bug fixes and new features? **Put them on separate PRs.**
 
-Moving those classes that we aren't using to a new package? **Put them on a separate PR.**
+* Moving those classes that we aren't using to a new package? **Put them on a separate PR.**
 
-Those refactorings that have no relevance to this new feature? **Put them on a separate PR.**
+* Those refactorings that have no relevance to this new feature? **Put them on a separate PR.**
 
-Deleting old files that haven't been needed for the past 3 years? **Put it on a separate PR.**
+* Deleting old files that haven't been needed for the past 3 years? **Put it on a separate PR.**
 
-Writing two services that are completely independent of each other? **Put them on separate PRs.**
+* Writing two services that are completely independent of each other? **Put them on separate PRs.**
 
 Choosing to do one thing in your PRs will naturally make them more focused and smaller (and reviewers will adore you
 for it!).
