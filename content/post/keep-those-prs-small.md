@@ -1,6 +1,6 @@
 ---
 title: "Keep those PRs small!"
-date: 2019-12-07T17:30:00+00:00
+date: 2019-12-09T19:00:00+00:00
 draft: true
 ---
 
@@ -98,19 +98,24 @@ Writing two services that are completely independent of each other? **Put them o
 Choosing to do one thing in your PRs will naturally make them more focused and smaller (and reviewers will adore you
 for it!).
 
-## The Good
+## Why?
 
 So why on earth should we go to the effort of making smaller PRs?
 
-### More people are likely to review
+### Quicker reviews
 
-### More digestible == Quicker reviews
+This goes without saying.
 
-Smaller PRs are easier to digest. There's no bouncing around files, infinite scrolling or context switching. If a
-reviewer understands your intention for the PR then they can offer more constructive criticism.
+Smaller PRs are easier to digest. There's no bouncing around files, scrolling for an eternity between a class and its
+test class.
+
+If a reviewer understands a) what your PR should be doing and b) what your PR is actually doing
+then they can offer more constructive criticism.
 
 Not just more digestible for the reviewer but also for yourself. How many times have you created a big pull request,
 read over it and thought, "what the hell am I even doing here?".
+
+*Small PRs, mean less code, means less time reading code, means quicker reviews.*
 
 ### Easier to spot problems
 
@@ -185,18 +190,16 @@ this code isn't even covered by our tests?
 Bugs like this can go unnoticed as we focus on seemingly more complicated code when reviewing PRs. It's surprising how
 often bugs creep into what should be trivial code. And this was in just 40(ish) lines. What happens when we get into the
 world of reviewing complex classes that are 400 lines long? Or multiple complex classes that are 400 lines long? It's
-easy to see how spotting bugs in a mammoth PR can be like trying to find
+easy to see how identifying issues in a mammoth PR can be like trying to find
 [hay in a needlestack](https://www.youtube.com/watch?v=WCheFdOy0tg).
 
 *Small PRs make it easier for you as an author and as a reviewer to spot problems.*
 
-### Constantly merging code into master
-
 ### A "truer" commit history
 
-Git commits have a message for a reason.
-
 // TODO: include image of git history and then an image showing different changes.
+
+Git commits have a message for a reason.
 
 *Small PRs will help you to maintain a "truer" commit history.*
 
@@ -204,41 +207,40 @@ Git commits have a message for a reason.
 
 // TODO: ties in nicely with last point. We can pinpoint specific changes.
 
-### More encouraging for newbies (open source)
+### Encouraging for newbies
 
 // TODO: contributions are valuable. No matter how big or how small.
 
-## The Bad (maybe)
-
-### No wider context
-
-Link to related PRs. If you are calling a function in a different PR, how is this different from using built-in
-libraries?
-
-### Slow build process
-
-This is a problem with your build process. Not small PRs.
-
-### More noise?
-
-Receiving more PRs, is this annoying?
+*Small PRs will encourage newbies to contribute to your project.*
 
 ## How?
 
-Questions to ask yourself before submitting a PR.
+Instead of going into the minutiae of how to make your PRs smaller, I've boiled it down to a couple of questions you
+should ask yourself before submitting a new PR.
 
-> If I were asked to review this PR, would I be happy about it?
+Firstly:
 
-If the answer is 'No', then split into smaller PRs.
+### "Does this PR do one thing?"
 
-> Does this PR do one thing?
+If the answer is "No", then split into smaller PRs.
 
-If the answer is 'No', then split into smaller PRs.
+Try to to identify changes that logically fit together. Does the PR description encapsulate all of the changes that you
+have made? Does the PR tell a story or are there just random additions here and there? Are those dependency upgrades
+really necessary for this piece of functionality?
+
+Be pragmatic. You don't have to create a separate PR for each individual function.
+
+And, secondly:
+
+### "If I were asked to review this PR, would I be happy about it?"
+
+If the answer is "No", then split into smaller PRs.
+
+Are those extraneous updates distracting? Do they draw attention away from the main problem this PR is solving? Somebody
+has to take time out of their day to review your code. Put yourself in their shoes. Make it easy for them and they'll
+(hopefully) return the favour with the PRs they send your way.
 
 ## Final thoughts
-
-Be pragmatic. You don't have to create a separate PR for each individual function. As a rule of thumb, I would suggest
-that if you're changing more than 10 files in a PR, then you should ask yourself, "am I doing too much?".
 
 Give it a try for a week. Gauge the speed at which you are merging your PRs into master. Gauge how reactive people are
 to reviewing your PRs. Gauge how often you're having to go back and fix bugs introduced by prior PRs. At the very least,
