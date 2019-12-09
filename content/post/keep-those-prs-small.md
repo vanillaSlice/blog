@@ -1,7 +1,7 @@
 ---
-title: "Keep those PRs small!"
+title: "WIP: Keep those PRs small!"
 date: 2019-12-09T19:00:00+00:00
-draft: true
+draft: false
 ---
 
 *tl;dr: Keeping your pull requests small will lead to quicker and better quality reviews, allowing you to
@@ -104,10 +104,12 @@ So why on earth should we go to the effort of making smaller PRs?
 
 ### Quicker reviews
 
+// TODO: flesh this section out.
+
 This goes without saying.
 
-Smaller PRs are easier to digest. There's no bouncing around files, scrolling for an eternity between a class and its
-test class.
+Small PRs are easier to digest. There's no bouncing around files, scrolling for an eternity between a class and its
+test class. You don't need to hold what seems like the entire codebase in your short-term memory.
 
 If a reviewer understands a) what your PR should be doing and b) what your PR is actually doing
 then they can offer more constructive criticism.
@@ -115,7 +117,7 @@ then they can offer more constructive criticism.
 Not just more digestible for the reviewer but also for yourself. How many times have you created a big pull request,
 read over it and thought, "what the hell am I even doing here?".
 
-*Small PRs, mean less code, means less time reading code, means quicker reviews.*
+*Small PRs, mean less code, means less time trying to understand code, means quicker reviews.*
 
 ### Easier to spot problems
 
@@ -181,8 +183,8 @@ public void resetCells() {
 }
 ```
 
-That second call to `grid.getRows()` should actually be `grid.getColumns()` (but you knew that, right?). How much
-simpler was it to find the bug the second time around?
+That second call to `grid.getRows()` should be `grid.getColumns()` (but you knew that, right?). How much simpler was it
+to find the bug the second time around?
 
 Admittedly, our unit tests should catch this. But what if the test data only uses square grids? Or even worse, what if
 this code isn't even covered by our tests?
@@ -197,19 +199,23 @@ easy to see how identifying issues in a mammoth PR can be like trying to find
 
 ### A "truer" commit history
 
-// TODO: include image of git history and then an image showing different changes.
+// TODO: flesh this section out.
 
 Git commits have a message for a reason.
 
 *Small PRs will help you to maintain a "truer" commit history.*
 
-### Easier to roll back and pinpoint specific changes
+### Pinpointing problematic commits
 
-// TODO: ties in nicely with last point. We can pinpoint specific changes.
+// TODO: flesh this section out.
+
+*Small PRs will allow you to revert specific commits that prove problematic.*
 
 ### Encouraging for newbies
 
-// TODO: contributions are valuable. No matter how big or how small.
+// TODO: flesh this section out.
+
+Contributions are valuable no matter how big or how small.
 
 *Small PRs will encourage newbies to contribute to your project.*
 
@@ -224,11 +230,11 @@ Firstly:
 
 If the answer is "No", then split into smaller PRs.
 
-Try to to identify changes that logically fit together. Does the PR description encapsulate all of the changes that you
+Try to identify changes that logically fit together. Does the PR description encapsulate all of the changes that you
 have made? Does the PR tell a story or are there just random additions here and there? Are those dependency upgrades
 really necessary for this piece of functionality?
 
-Be pragmatic. You don't have to create a separate PR for each individual function.
+Be pragmatic. You don't have to create a separate PR for each function.
 
 And, secondly:
 
