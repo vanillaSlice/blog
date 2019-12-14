@@ -1,7 +1,7 @@
 ---
-title: "WIP: Keep those PRs small!"
-date: 2019-12-09T19:00:00+00:00
-draft: false
+title: "Keep those PRs small!"
+date: 2019-12-14T10:00:00+00:00
+draft: true
 ---
 
 *tl;dr: Keeping your pull requests small will lead to quicker and better quality reviews, allowing you to
@@ -40,7 +40,7 @@ feature. There are refactorings, renamings, deleted files, reformattings, import
 typos, dead code removal and, finally, new code. And not just new code. A *lot* of new code. New code that could have
 been submitted independently in bite-sized chunks.
 
-You spend the next 25 minutes going over the changes, trying to understand how all of this works whilst ducking and
+You spend the next 35 minutes going over the changes, trying to understand how all of this works whilst ducking and
 weaving through superfluous updates. You gloss over certain parts (because life is too short). You leave a few
 suggestions. There's a bit of back and forth between you and the author. The code generally looks pretty good. And
 with that, you bestow the honour of a pull request approval. You're free at last. The monster is slain!
@@ -100,9 +100,9 @@ for it!).
 
 ## Why?
 
-So why on earth should we go to the effort of making smaller PRs?
+So why on earth should we go to the effort of making smaller PRs? Here are a few benefits:
 
-### Quicker reviews
+### Faster reviews
 
 // TODO: flesh this section out.
 
@@ -114,10 +114,10 @@ test class. You don't need to hold what seems like the entire codebase in your s
 If a reviewer understands a) what your PR should be doing and b) what your PR is actually doing
 then they can offer more constructive criticism.
 
-Not just more digestible for the reviewer but also for yourself. How many times have you created a big pull request,
-read over it and thought, "what the hell am I even doing here?".
+Small PRs aren't just more digestible for the reviewer but also for yourself. How many times have you created a big pull
+request, read over it and thought, "what the hell am I even doing here?".
 
-*Small PRs, mean less code, means less time trying to understand code, means quicker reviews.*
+*Small PRs, mean less code, means less time trying to understand said code, means faster reviews.*
 
 ### Easier to spot problems
 
@@ -169,6 +169,12 @@ public void resetCells() {
     }
   }
 }
+
+private void resetCell(Coordinates coordinates) {
+  Cell cell = grid.get(coordinates);
+
+  cell.aliveProperty().setValue(false);
+}
 ```
 
 Did you find it? How about now:
@@ -184,7 +190,8 @@ public void resetCells() {
 ```
 
 That second call to `grid.getRows()` should be `grid.getColumns()` (but you knew that, right?). How much simpler was it
-to find the bug the second time around?
+to find the bug the second time around? Wouldn't it have been better if the resetting functionality was added on a
+different PR?
 
 Admittedly, our unit tests should catch this. But what if the test data only uses square grids? Or even worse, what if
 this code isn't even covered by our tests?
@@ -197,13 +204,11 @@ easy to see how identifying issues in a mammoth PR can be like trying to find
 
 *Small PRs make it easier for you as an author and as a reviewer to spot problems.*
 
-### Pinpointing problematic commits
-
-// TODO: flesh this section out.
+### Reverting problematic commits
 
 Git commits have a message for a reason. They explain what and why changes were made.
 
-Consider the following example:
+Consider the following history:
 
 ![Screenshot 6](/images/keep-those-prs-small/screenshot-6.png)
 
@@ -215,9 +220,17 @@ Let's take a closer look at the `refactor: Extract SNSFactory` commit and aha!
 
 ![Screenshot 7](/images/keep-those-prs-small/screenshot-7.png)
 
-This wasn't mentioned in the commit message. Looks like a super important security patch. In most cases, this wouldn't
-be a problem. We've tidied up some code and added a vital security fix. But what if the refactor introduced an issue
-and somehow made its way to production? We wouldn't want to revert this commit and lose our patch.
+This wasn't mentioned in the commit message. Looks like a super important security patch. Now, I'm sure the author's
+intentions were good. They identified a vulnerability and fixed it. However, dependency upgrades (especially ones
+relating to security) are worthy of their own dedicated PRs.
+
+In most cases, this wouldn't be a problem. But what if this 'refactor' introduced an issue and somehow made its way to
+production? We wouldn't want to revert this commit and open ourselves up to a vulnerability again. We'd have to revert
+this commit and create a new PR with just the security bump, giving us time to investigate the issue. All of which
+could have been avoided by having very precise, focused PRs.
+
+And this is just a simple example. (call out an example about writing too much data to kinesis and we want to pull it
+but we'd have to revert both features).
 
 *Small PRs will allow you to revert specific problematic commits.*
 
@@ -230,11 +243,11 @@ Firstly:
 
 ### "Does this PR do one thing?"
 
-If the answer is "No", then split into smaller PRs.
+If the answer is "No", then consider splitting it into smaller PRs.
 
 Try to identify changes that logically fit together. Does the PR description encapsulate all of the changes that you
-have made? Does the PR tell a story or are there just random additions here and there? Are those dependency upgrades
-really necessary for this piece of functionality?
+have made? Are those dependency upgrades really necessary for this piece of functionality? Does this new feature need to
+be implemented on a single PR or could it be split up into smaller units?
 
 Be pragmatic. You don't have to create a separate PR for each function.
 
@@ -242,17 +255,25 @@ And, secondly:
 
 ### "If I were asked to review this PR, would I be happy about it?"
 
-If the answer is "No", then split into smaller PRs.
+If the answer is "No", then consider splitting it into smaller PRs.
 
-Are those extraneous updates distracting? Do they draw attention away from the main problem this PR is solving? Somebody
-has to take time out of their day to review your code. Put yourself in their shoes. Make it easy for them and they'll
-(hopefully) return the favour with the PRs they send your way.
+Try to view your PR with fresh eyes. If you read it from top to bottom, is it hard to follow? Are those extraneous
+updates distracting? Do they draw attention away from the main problem that you are attempting to solve?
+
+Somebody has to take time out of their day to review your code. Put yourself in their shoes. Make it easy for them and
+they'll (hopefully) return the favour with the PRs they send your way.
 
 ## Final thoughts
 
-Give it a try for a week. Gauge the speed at which you are merging your PRs into master. Gauge how reactive people are
-to reviewing your PRs. Gauge how often you're having to go back and fix bugs introduced by prior PRs. At the very least,
-your number of contributions will start to look pretty healthy.
+Give it a try for a week. Make a conscious effort to keep your PRs small and gauge:
+
+* the speed at which you are merging your PRs into master.
+* how reactive people are to reviewing your PRs.
+* the number of comments offering constructive criticism.
+* how often you're having to go back and fix bugs introduced by prior PRs.
+
+I'm confident that you'll see an improvement. At the very least, your number of contributions will start to look pretty
+healthy.
 
 So one last time: **keep those PRs small!**
 
