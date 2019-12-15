@@ -104,15 +104,16 @@ So why on earth should we go to the effort of making smaller PRs? Here are a few
 
 ### Faster reviews
 
-// TODO: flesh this section out.
+Small PRs are easier to digest (assuming you aren't writing obscure one-liners). There's no bouncing around files,
+scrolling for an eternity between a class and its test class. You don't need to hold what seems like the entire
+codebase in your short-term memory.
 
-This goes without saying.
+If a reviewer understands:
 
-Small PRs are easier to digest. There's no bouncing around files, scrolling for an eternity between a class and its
-test class. You don't need to hold what seems like the entire codebase in your short-term memory.
+1. what your PR should be doing
+2. what your PR is actually doing i.e. they fully understand each line of code
 
-If a reviewer understands a) what your PR should be doing and b) what your PR is actually doing
-then they can offer more constructive criticism.
+then they are also in a much better position to offer more constructive criticism.
 
 Small PRs aren't just more digestible for the reviewer but also for yourself. How many times have you created a big pull
 request, read over it and thought, "what the hell am I even doing here?".
@@ -204,35 +205,25 @@ easy to see how identifying issues in a mammoth PR can be like trying to find
 
 *Small PRs make it easier for you as an author and as a reviewer to spot problems.*
 
-### Reverting problematic commits
+### Unblocking updates
 
-Git commits have a message for a reason. They explain what and why changes were made.
-
-Consider the following history:
+Let's consider the following commit history:
 
 ![Screenshot 6](/images/keep-those-prs-small/screenshot-6.png)
 
-At a glance, we can see exactly what happened on that day.
-
-Or can we?
-
-Let's take a closer look at the `refactor: Extract SNSFactory` commit and aha!
+More specifically, let's focus on the commit: `Refactor SNSFactory + Security Patch`. It's clear that this commit did
+more than one thing. Digging a little deeper, we can see that the security patch just consisted of a dependency version
+bump:
 
 ![Screenshot 7](/images/keep-those-prs-small/screenshot-7.png)
 
-This wasn't mentioned in the commit message. Looks like a super important security patch. Now, I'm sure the author's
-intentions were good. They identified a vulnerability and fixed it. However, dependency upgrades (especially ones
-relating to security) are worthy of their own dedicated PRs.
+Could this have been done on a separate PR? Absolutely! *Should* this have been done on a separate PR? Absolutely!
 
-In most cases, this wouldn't be a problem. But what if this 'refactor' introduced an issue and somehow made its way to
-production? We wouldn't want to revert this commit and open ourselves up to a vulnerability again. We'd have to revert
-this commit and create a new PR with just the security bump, giving us time to investigate the issue. All of which
-could have been avoided by having very precise, focused PRs.
+Why? Say, for example, refactoring the `SNSFactory` introduced an issue meaning that we sent an excessive amount of
+messages to an [SNS](https://aws.amazon.com/sns/) topic. We'd have to rollback our application to a previous version
+and revert our security fix 😱. Not ideal.
 
-And this is just a simple example. (call out an example about writing too much data to kinesis and we want to pull it
-but we'd have to revert both features).
-
-*Small PRs will allow you to revert specific problematic commits.*
+*Small PRs allow distinct updates to be deployed without being blocked by unrelated changes.*
 
 ## How?
 
@@ -261,7 +252,7 @@ Try to view your PR with fresh eyes. If you read it from top to bottom, is it ha
 updates distracting? Do they draw attention away from the main problem that you are attempting to solve?
 
 Somebody has to take time out of their day to review your code. Put yourself in their shoes. Make it easy for them and
-they'll (hopefully) return the favour with the PRs they send your way.
+they'll, hopefully, return the favour with the PRs they send your way.
 
 ## Final thoughts
 
