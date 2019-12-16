@@ -1,7 +1,7 @@
 ---
 title: "Keep those PRs small!"
-date: 2019-12-14T10:00:00+00:00
-draft: true
+date: 2019-12-16T22:03:00+00:00
+draft: false
 ---
 
 *tl;dr: Keeping your pull requests small will lead to quicker and better quality reviews, allowing you to
@@ -16,10 +16,11 @@ towards anyone in particular.*
 
 Picture this. You've just arrived at work. It's a beautiful day, the sun is shining (not that you'll be seeing any of it
 you hermit you 😉). You're raring to code. You switch on your laptop and grab a cup of coffee. You reply to a few emails
-and see that you, *yes you*, have been hand-selected to review a pull request. Positively flattered, you open it up
-only to be hit by a wall of red and green. You think, "what is this Lovecraftian-sized beast that stands before me?". A
-changeset so big that you could develop RSI just by scrolling through it. Lucky for you, there are multiple requested
-reviewers. So you close the tab and forget about it.
+and see that you, *yes you*, have been hand-selected to review a pull request.
+
+Positively flattered, you open it up only to be hit by a wall of red and green. You think, "what is this
+Lovecraftian-sized beast that stands before me?". A changeset so big that you could develop RSI just by scrolling
+through it. Lucky for you, there are multiple requested reviewers. So you close the tab and forget about it.
 
 20 minutes later…
 
@@ -60,7 +61,7 @@ how all the unit tests cover each edge case and will stop this bug from rearing 
 this PR is a doddle and you submit your approval in no time.
 
 But you're left with an underlying feeling of disappointment. Disappointed that neither you nor the author spotted this
-bug in the original PR. It was glaringly obvious (albeit surrounded by a bazillion other changes). Maybe it was just a
+bug in the original PR. It was glaringly obvious, albeit surrounded by a bazillion other changes. Maybe it was just a
 one-off.
 
 30 minutes later…
@@ -100,23 +101,16 @@ for it!).
 
 ## Why?
 
-So why on earth should we go to the effort of making smaller PRs? Here are a few benefits:
-
 ### Faster reviews
 
-Small PRs are easier to digest (assuming you aren't writing obscure one-liners). There's no bouncing around files,
-scrolling for an eternity between a class and its test class. You don't need to hold what seems like the entire
-codebase in your short-term memory.
+Small PRs are easier to digest (assuming the author doesn't write obscure one-liners). There's no bouncing around files,
+scrolling for an eternity between a class and its test class. We don't need to hold what seems like the entire codebase
+in our short-term memory. With the focus being on one thing, we reduce noise and distractions that can eat into precious
+reviewing time.
 
-If a reviewer understands:
-
-1. what your PR should be doing
-2. what your PR is actually doing i.e. they fully understand each line of code
-
-then they are also in a much better position to offer more constructive criticism.
-
-Small PRs aren't just more digestible for the reviewer but also for yourself. How many times have you created a big pull
-request, read over it and thought, "what the hell am I even doing here?".
+Have you ever delayed reviewing a huge PR because you found the task daunting? Of course, you have. We all have! Small
+PRs don't just reduce the amount of time spent reviewing. They make it much more likely that a reviewer will begin
+their review ASAP.
 
 *Small PRs, mean less code, means less time trying to understand said code, means faster reviews.*
 
@@ -124,7 +118,8 @@ request, read over it and thought, "what the hell am I even doing here?".
 
 Time for a really basic example.
 
-Give yourself a minute or so to read through the following code and hunt down the fairly obvious error:
+Give yourself a minute or so to read through the following code extract from a PR. Try to hunt down the fairly obvious
+error:
 
 ```
 public void initialiseCells() {
@@ -205,7 +200,7 @@ easy to see how identifying issues in a mammoth PR can be like trying to find
 
 *Small PRs make it easier for you as an author and as a reviewer to spot problems.*
 
-### Unblocking updates
+### Not blocking other updates
 
 Let's consider the following commit history:
 
