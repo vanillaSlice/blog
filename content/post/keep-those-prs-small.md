@@ -264,3 +264,5 @@ healthy.
 So one last time: **keep those PRs small!**
 
 Thanks for reading.
+
+***Also posted on [Medium](https://medium.com/@insideupside/keep-those-prs-small-eace62b719df).***
