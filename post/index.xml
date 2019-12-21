@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Muh blog.</title>
+    <link>https://blog.mikelowe.xyz/post/</link>
+    <description>Recent content in Posts on Muh blog.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 16 Dec 2019 22:03:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.mikelowe.xyz/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Keep those PRs small!</title>
+      <link>https://blog.mikelowe.xyz/post/keep-those-prs-small/</link>
+      <pubDate>Mon, 16 Dec 2019 22:03:00 +0000</pubDate>
+      
+      <guid>https://blog.mikelowe.xyz/post/keep-those-prs-small/</guid>
+      <description>tl;dr: Keeping your pull requests small will lead to quicker and better quality reviews, allowing you to merge your glorious code into master much sooner.
+Disclaimer: Many of the behaviours described in this post have been exhibited by myself. I am not directing criticisms towards anyone in particular.
+Storytime Picture this. You&#39;ve just arrived at work. It&#39;s a beautiful day, the sun is shining (not that you&#39;ll be seeing any of it you hermit you 😉).</description>
+    </item>
+    
+    <item>
+      <title>Recommendation: Seven Languages in Seven Weeks</title>
+      <link>https://blog.mikelowe.xyz/post/seven-languages-in-seven-weeks/</link>
+      <pubDate>Sun, 09 Jun 2019 14:58:24 +0100</pubDate>
+      
+      <guid>https://blog.mikelowe.xyz/post/seven-languages-in-seven-weeks/</guid>
+      <description>tl;dr: Seven Languages in Seven Weeks is an awesome book that I would highly recommend to mid-level developers who&#39;ve ever had a feeling of apprehension when wanting to learn a new language or technology.
+Towards the end of last year, I was in a 1-2-1 with my line manager. 1-2-1s are meetings that allow you to discuss work issues, ways in which you can improve, air any concerns you have or to just chew the fat.</description>
+    </item>
+    
+  </channel>
+</rss>

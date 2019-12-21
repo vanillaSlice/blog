@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.61.0" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Mike Lowe">
+  <meta property="og:url" content="https://blog.mikelowe.xyz/post/keep-those-prs-small/">
+
+  <title>Keep those PRs small! - Muh blog.</title>
+  <meta property="og:title" content="Keep those PRs small! - Muh blog.">
+  <meta property="og:type" content="article">
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <link rel="stylesheet" href="/css/journal.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Muh blog.">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="site-nav">
+      <a href="https://blog.mikelowe.xyz/">Index</a>
+    </nav>
+
+
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Keep those PRs small!</h1>
+      <time class="post-date" datetime="2019-12-16 22:03:00 UTC">16 Dec 2019</time>
+    </header>
+
+    <p><em>tl;dr: Keeping your pull requests small will lead to quicker and better quality reviews, allowing you to
+merge your glorious code into master much sooner.</em></p>
+<p><img src="/images/keep-those-prs-small/main.png" alt="Keep those PRs small!"></p>
+<p><em>Disclaimer: Many of the behaviours described in this post have been exhibited by myself. I am not directing criticisms
+towards anyone in particular.</em></p>
+<h2 id="storytime">Storytime</h2>
+<p>Picture this. You've just arrived at work. It's a beautiful day, the sun is shining (not that you'll be seeing any of it
+you hermit you 😉). You're raring to code. You switch on your laptop and grab a cup of coffee. You reply to a few emails
+and see that you, <em>yes you</em>, have been hand-selected to review a pull request.</p>
+<p>Positively flattered, you open it up only to be hit by a wall of red and green. You think, &ldquo;what is this
+Lovecraftian-sized beast that stands before me?&quot;. A changeset so big that you could develop RSI just by scrolling
+through it. Lucky for you, there are multiple requested reviewers. So you close the tab and forget about it.</p>
+<p>20 minutes later…</p>
+<p><img src="/images/keep-those-prs-small/screenshot-1.png" alt="Screenshot 1"></p>
+<p>You've been sucked right back in. There's no escaping this now.</p>
+<p>Headphones? Check. More coffee? Check. A copious number of biscuits? Check.</p>
+<p>You open the PR again.</p>
+<p>The summary stares back at you. Taunting you:</p>
+<p><img src="/images/keep-those-prs-small/screenshot-2.png" alt="Screenshot 2"></p>
+<p>As you scroll through, you realise that despite what the description says, this PR doesn't just add a new
+feature. There are refactorings, renamings, deleted files, reformattings, import reorderings, dependency upgrades, fixed
+typos, dead code removal and, finally, new code. And not just new code. A <em>lot</em> of new code. New code that could have
+been submitted independently in bite-sized chunks.</p>
+<p>You spend the next 35 minutes going over the changes, trying to understand how all of this works whilst ducking and
+weaving through superfluous updates. You gloss over certain parts (because life is too short). You leave a few
+suggestions. There's a bit of back and forth between you and the author. The code generally looks pretty good. And
+with that, you bestow the honour of a pull request approval. You're free at last. The monster is slain!
+<img src="/images/keep-those-prs-small/parrot.gif" alt="Party Parrot"></p>
+<p>1 hour later…</p>
+<p><img src="/images/keep-those-prs-small/screenshot-3.png" alt="Screenshot 3"></p>
+<p>You take a look at this new PR. You are overcome with joy and relief when you see:</p>
+<p><img src="/images/keep-those-prs-small/screenshot-4.png" alt="Screenshot 4"></p>
+<p>It's a fraction of the size of the previous PR. It's to the point. It's a bug fix and <em>only</em> a bug fix. Nothing more.
+Nothing less. You see what the problem originally was and how this PR fixes it. You understand it perfectly. You see
+how all the unit tests cover each edge case and will stop this bug from rearing its ugly head in the future. Reviewing
+this PR is a doddle and you submit your approval in no time.</p>
+<p>But you're left with an underlying feeling of disappointment. Disappointed that neither you nor the author spotted this
+bug in the original PR. It was glaringly obvious, albeit surrounded by a bazillion other changes. Maybe it was just a
+one-off.</p>
+<p>30 minutes later…</p>
+<p><img src="/images/keep-those-prs-small/screenshot-5.png" alt="Screenshot 5"></p>
+<p>…of course, it wasn't a one-off. There is rarely just one bug.</p>
+<p>And so on and so on.</p>
+<p>Now, this may be slightly exaggerated but I'm sure most of you have been in similar situations (having played both
+characters). I'm using this as a way to illustrate why I believe that keeping your PRs small will lead to faster and
+better quality reviews.</p>
+<h2 id="so-what-is-a-small-pr">So what is a &ldquo;Small PR&rdquo;?</h2>
+<p>For me, pull requests should do one thing. Let me paraphrase the advice in
+<a href="https://www.oreilly.com/library/view/clean-code/9780136083238/">Clean Code</a> on functions:</p>
+<blockquote>
+<p>Pull requests should do one thing. They should do it well. They should do it only.</p>
+</blockquote>
+<p>Every line in your PR should contribute to that one thing. Anything that does not contribute to that one thing should be
+put on a separate PR.</p>
+<ul>
+<li>
+<p>Mixing bug fixes and new features? <strong>Put them on separate PRs.</strong></p>
+</li>
+<li>
+<p>Moving those classes that we aren't using to a new package? <strong>Put them on a separate PR.</strong></p>
+</li>
+<li>
+<p>Those refactorings that have no relevance to this new feature? <strong>Put them on a separate PR.</strong></p>
+</li>
+<li>
+<p>Deleting old files that haven't been needed for the past 3 years? <strong>Put it on a separate PR.</strong></p>
+</li>
+<li>
+<p>Writing two services that are completely independent of each other? <strong>Put them on separate PRs.</strong></p>
+</li>
+</ul>
+<p>Choosing to do one thing in your PRs will naturally make them more focused and smaller (and reviewers will adore you
+for it!).</p>
+<h2 id="why">Why?</h2>
+<h3 id="faster-reviews">Faster reviews</h3>
+<p>Small PRs are easier to digest (assuming the author doesn't write obscure one-liners). There's no bouncing around files,
+scrolling for an eternity between a class and its test class. We don't need to hold what seems like the entire codebase
+in our short-term memory. With the focus being on one thing, we reduce noise and distractions that can eat into precious
+reviewing time.</p>
+<p>Have you ever delayed reviewing a huge PR because you found the task daunting? Of course, you have. We all have! Small
+PRs don't just reduce the amount of time spent reviewing. They make it much more likely that a reviewer will begin
+their review ASAP.</p>
+<p><em>Small PRs, mean less code, means less time trying to understand said code, means faster reviews.</em></p>
+<h3 id="easier-to-spot-problems">Easier to spot problems</h3>
+<p>Time for a really basic example.</p>
+<p>Give yourself a minute or so to read through the following code extract from a PR. Try to hunt down the fairly obvious
+error:</p>
+<pre><code>public void initialiseCells() {
+  for (int row = 0; row &lt; grid.getRows(); row++) {
+    for (int column = 0; column &lt; grid.getColumns(); column++) {
+      initialiseCell(new Coordinates(row, column));
+    }
+  }
+}
+
+private void initialiseCell(Coordinates coordinates) {
+  Cell cell = new Cell();
+
+  addAlivePropertyListener(cell);
+  addClickEventHandler(cell);
+
+  grid.add(cell, coordinates);
+}
+
+private void addAlivePropertyListener(Cell cell) {
+  cell.aliveProperty()
+    .addListener(newValue -&gt; setAliveStyle(cell, newValue));
+}
+
+private void setAliveStyle(Cell cell, boolean isAlive) {
+  List&lt;String&gt; styleClass = cell.getStyleClass();
+  if (isAlive) {
+    styleClass.add(ALIVE_STYLE_CLASS);
+  } else {
+    styleClass.remove(ALIVE_STYLE_CLASS);
+  }
+}
+
+private void addClickEventHandler(Cell cell) {
+  cell.addEventHandler(MouseEvent.MOUSE_CLICKED,
+    event -&gt; cell.toggleAlive());
+}
+
+public void resetCells() {
+  for (int row = 0; row &lt; grid.getRows(); row++) {
+    for (int column = 0; column &lt; grid.getRows(); column++) {
+      resetCell(new Coordinates(row, column));
+    }
+  }
+}
+
+private void resetCell(Coordinates coordinates) {
+  Cell cell = grid.get(coordinates);
+
+  cell.aliveProperty().setValue(false);
+}
+</code></pre><p>Did you find it? How about now:</p>
+<pre><code>public void resetCells() {
+  for (int row = 0; row &lt; grid.getRows(); row++) {
+    for (int column = 0; column &lt; grid.getRows(); column++) {
+      resetCell(new Coordinates(row, column));
+    }
+  }
+}
+</code></pre><p>That second call to <code>grid.getRows()</code> should be <code>grid.getColumns()</code> (but you knew that, right?). How much simpler was it
+to find the bug the second time around? Wouldn't it have been better if the resetting functionality was added on a
+different PR?</p>
+<p>Admittedly, our unit tests should catch this. But what if the test data only uses square grids? Or even worse, what if
+this code isn't even covered by our tests?</p>
+<p>Bugs like this can go unnoticed as we focus on seemingly more complicated code when reviewing PRs. It's surprising how
+often bugs creep into what should be trivial code. And this was in just 40(ish) lines. What happens when we get into the
+world of reviewing complex classes that are 400 lines long? Or <em>multiple</em> complex classes that are 400 lines long? It's
+easy to see how identifying issues in a mammoth PR can be like trying to find
+<a href="https://www.youtube.com/watch?v=WCheFdOy0tg">hay in a needlestack</a>.</p>
+<p><em>Small PRs make it easier for you as an author and as a reviewer to spot problems.</em></p>
+<h3 id="not-blocking-other-updates">Not blocking other updates</h3>
+<p>Let's consider the following commit history:</p>
+<p><img src="/images/keep-those-prs-small/screenshot-6.png" alt="Screenshot 6"></p>
+<p>More specifically, let's focus on the commit: <code>Refactor SNSFactory + Security Patch</code>. It's clear that this commit did
+more than one thing. Digging a little deeper, we can see that the security patch just consisted of a dependency version
+bump:</p>
+<p><img src="/images/keep-those-prs-small/screenshot-7.png" alt="Screenshot 7"></p>
+<p>Could this have been done on a separate PR? Absolutely! <em>Should</em> this have been done on a separate PR? Absolutely!</p>
+<p>Why? Say, for example, refactoring the <code>SNSFactory</code> introduced an issue meaning that we sent an excessive amount of
+messages to an <a href="https://aws.amazon.com/sns/">SNS</a> topic. We'd have to rollback our application to a previous version
+and revert our security fix 😱. Not ideal.</p>
+<p><em>Small PRs allow distinct updates to be deployed without being blocked by unrelated changes.</em></p>
+<h2 id="how">How?</h2>
+<p>Instead of going into the minutiae of how to make your PRs smaller, I've boiled it down to a couple of questions you
+should ask yourself before submitting a new PR.</p>
+<p>Firstly:</p>
+<h3 id="does-this-pr-do-one-thing">&ldquo;Does this PR do one thing?&rdquo;</h3>
+<p>If the answer is &ldquo;No&rdquo;, then consider splitting it into smaller PRs.</p>
+<p>Try to identify changes that logically fit together. Does the PR description encapsulate all of the changes that you
+have made? Are those dependency upgrades really necessary for this piece of functionality? Does this new feature need to
+be implemented on a single PR or could it be split up into smaller units?</p>
+<p>Be pragmatic. You don't have to create a separate PR for each function.</p>
+<p>And, secondly:</p>
+<h3 id="if-i-were-asked-to-review-this-pr-would-i-be-happy-about-it">&ldquo;If I were asked to review this PR, would I be happy about it?&rdquo;</h3>
+<p>If the answer is &ldquo;No&rdquo;, then consider splitting it into smaller PRs.</p>
+<p>Try to view your PR with fresh eyes. If you read it from top to bottom, is it hard to follow? Are those extraneous
+updates distracting? Do they draw attention away from the main problem that you are attempting to solve?</p>
+<p>Somebody has to take time out of their day to review your code. Put yourself in their shoes. Make it easy for them and
+they'll, hopefully, return the favour with the PRs they send your way.</p>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>Give it a try for a week. Make a conscious effort to keep your PRs small and gauge:</p>
+<ul>
+<li>the speed at which you are merging your PRs into master.</li>
+<li>how reactive people are to reviewing your PRs.</li>
+<li>the number of comments offering constructive criticism.</li>
+<li>how often you're having to go back and fix bugs introduced by prior PRs.</li>
+</ul>
+<p>I'm confident that you'll see an improvement. At the very least, your number of contributions will start to look pretty
+healthy.</p>
+<p>So one last time: <strong>keep those PRs small!</strong></p>
+<p>Thanks for reading.</p>
+<p><em><strong>Also posted on <a href="https://medium.com/@insideupside/keep-those-prs-small-eace62b719df">Medium</a>.</strong></em></p>
+
+
+  </article>
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-mikelowe-xyz" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      <footer class="site-footer">
+        <span itemscope itemtype="http://schema.org/Person">
+          <link itemprop="url" href="https://blog.mikelowe.xyz/">
+          <span itemprop="name">Mike Lowe</span>
+
+          ,
+          <span itemprop="jobTitle">Developer</span> at
+          <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization"><a itemprop="url" href="https://upsideenergy.co.uk/"><span itemprop="name">Upside Energy</span></a></span><br>
+
+          <a itemprop="sameAs" href="https://github.com/vanillaSlice" title="GitHub">GH</a>
+
+          
+
+          
+        </span>
+
+        
+      </footer>
+    </div>
+
+  <script src="/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>
+
